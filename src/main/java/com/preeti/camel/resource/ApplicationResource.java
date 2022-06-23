@@ -24,7 +24,7 @@ public class ApplicationResource extends RouteBuilder {
         restConfiguration().component("servlet").port(9090).host("localhost").bindingMode(RestBindingMode.json);
 
         rest().get("/hello-world").produces(MediaType.APPLICATION_JSON_VALUE).route()
-                .setBody(constant("Welcome to java techie")).endRest();
+                .setBody(constant("Welcome")).endRest();
 
         rest().get("/getOrders").produces(MediaType.APPLICATION_JSON_VALUE).route().setBody(() -> service.getTimeStatus())
                 .endRest();
