@@ -26,10 +26,10 @@ public class ApplicationResource extends RouteBuilder {
         rest().get("/hello-world").produces(MediaType.APPLICATION_JSON_VALUE).route()
                 .setBody(constant("Welcome")).endRest();
 
-        rest().get("/getOrders").produces(MediaType.APPLICATION_JSON_VALUE).route().setBody(() -> service.getTimeStatus())
+        rest().get("/getStatus").produces(MediaType.APPLICATION_JSON_VALUE).route().setBody(() -> service.getTimeStatus())
                 .endRest();
 
-        rest().post("/addOrder").consumes(MediaType.APPLICATION_JSON_VALUE).type(Time.class).outType(Time.class)
+        rest().post("/addStatus").consumes(MediaType.APPLICATION_JSON_VALUE).type(Time.class).outType(Time.class)
                 .route().process(processor).endRest();
     }
 
